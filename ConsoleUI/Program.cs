@@ -10,6 +10,24 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            var vehicles = new List<Vehicle>();
+
+            var focus = new Car() { HasTrunk = true, Make = "Ford", Model = "Focus", Year = 2013 };
+            var motorcycle = new Motorcycle { HasSideCart = false, Make = "HD", Model = "Chopper", Year = 1978 };
+            Vehicle sedan = new Car() { HasTrunk = true, Make = "Dodge", Model = "Blah", Year = 2010 };
+            Vehicle sportscar = new Car {HasTrunk = false, Make ="Ferari", Model = "Something", Year =2000 };
+
+            vehicles.Add(focus);
+            vehicles.Add(motorcycle);
+            vehicles.Add(sedan);
+            vehicles.Add(sportscar);
+
+            foreach (var vehicle in vehicles) 
+            {
+                Console.WriteLine($"Make {vehicle.Make} Model {vehicle.Make} Year {vehicle.Year}");
+                vehicle.DriveVirtual();
+                Console.WriteLine("================================================================");
+            }
             /*
              * Todo follow all comments!! 
              */
@@ -23,7 +41,9 @@ namespace ConsoleUI
              * Vehicle shall have an abstract method called DriveAbstract with no implementation
              * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
              */
-
+     
+            
+            
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
              * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
